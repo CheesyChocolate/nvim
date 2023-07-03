@@ -18,6 +18,8 @@ vim.g.vimwiki_list = {
     }
 }
 
+--TODO: fix
+--https://github.com/vimwiki/vimwiki/issues/1319
 vim.api.nvim_create_autocmd(
 	{"BufRead", "BufNewFile"}, {
 		pattern = {"/tmp/calcurse*", "~/.calcurse/notes/*"},
