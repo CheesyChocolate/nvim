@@ -120,3 +120,4 @@ Structured of ThePrimeagen lua config, great take on simple and clean config by 
 * undotree layout
 * global varibles: updatetime,
 * faster load time (vim.loader.enable())
+* goyo toggle (revert keymap)

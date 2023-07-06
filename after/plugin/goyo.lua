@@ -1,32 +1,29 @@
--- keymap to toggle goyo mode
--- TODO: ColorMyPencils()
--- TODO: set bg=light
--- TODO: set line linebreak<CR>
--- TODO: make a function then map it to a key
-vim.keymap.set("n", "<leader>g", ":Goyo<CR>", { silent = true })
+-- goyo settings
+local goyoMode = true
+local function setupGoyo()
+	vim.cmd("Goyo")
+	if goyoMode then
+		vim.keymap.set("n", "ZZ", ":Goyo|x!<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "ZQ", ":Goyo|q!<CR>", { noremap = true, silent = true })
+		vim.opt.bg = "dark"
+		vim.opt.linebreak = true
+		vim.g.goyo_width = 80
+		goyoMode = false
+	else
+		vim.keymap.del("n", "ZZ")
+		vim.keymap.del("n", "ZQ")
+		vim.opt.linebreak = false
+		goyoMode = true
+	end
+end
 
--- Enable Goyo by default for mutt writing
+-- keymap to toggle goyo mode
+vim.keymap.set("n", "<leader>g", function() setupGoyo() end, { silent = true })
+
+-- set goyo options when opening neomutt temp files
 vim.api.nvim_create_autocmd(
 	{"BufRead", "BufNewFile"}, {
 		pattern = {"/tmp/neomutt*"},
-		command = "let g:goyo_width=80"
-	}
-)
-vim.api.nvim_create_autocmd(
-	{"BufRead", "BufNewFile"}, {
-		pattern = {"/tmp/neomutt*"},
-		command = "set bg=light"
-	}
-)
-vim.api.nvim_create_autocmd(
-	{"BufRead", "BufNewFile"}, {
-		pattern = {"/tmp/neomutt*"},
-		command = "map ZZ :Goyo|x!<CR>"
-	}
-)
-vim.api.nvim_create_autocmd(
-	{"BufRead", "BufNewFile"}, {
-		pattern = {"/tmp/neomutt*"},
-		command = "map ZQ :Goyo|q!<CR>"
+		callback =  setupGoyo
 	}
 )
