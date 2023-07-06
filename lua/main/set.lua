@@ -41,8 +41,3 @@ vim.opt.splitright = true
 
 -- autocompletion
 vim.opt.wildmode = { "longest", "list", "full" }
-
--- disable auto comment
-vim.opt.formatoptions:remove("c")
-vim.opt.formatoptions:remove("r")
-vim.opt.formatoptions:remove("o")
