@@ -61,7 +61,7 @@ Structured of ThePrimeagen lua config, great take on simple and clean config by 
 * leader key as ","
 * keymap: replace function (use ThePrimeagen)
 * global varibles: syntax (treesitter instead), filetype plugin (default in neovim),
-* plugin: nerdtree (native instead, mapped to "<leader>pv")
+* plugin: nerdtree (native instead, mapped to "<leader>pd")
 * plugin: vimling
 * keymap: Check file in shellcheck (use linter instead)
 * keymap: split navigation
