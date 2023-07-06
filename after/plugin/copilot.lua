@@ -1,7 +1,5 @@
 -- Use CTRL-b to call copilot accept.
--- TODO: Translate to lua
--- TODO: unbound <Tab> in insert mode
-vim.cmd([[
-	imap <silent><script><expr> <C-k> copilot#Accept("\<CR>")
-]])
-vim.g.copilot_no_tab_map = true -- let g:copilot_no_tab_map = v:true
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+
+vim.api.nvim_set_keymap("i", "<C-b>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
