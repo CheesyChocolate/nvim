@@ -36,8 +36,8 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 300
 
 -- window split position ( bottom, right )
-vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- autocompletion
 vim.opt.wildmode = { "longest", "list", "full" }
