@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "/home/suren/.local/share/nvim/site/pack/packer/start/playground",
     url = "https://github.com/nvim-treesitter/playground"
   },
+  ["rose-pine"] = {
+    loaded = true,
+    path = "/home/suren/.local/share/nvim/site/pack/packer/start/rose-pine",
+    url = "https://github.com/rose-pine/neovim"
+  },
   undotree = {
     loaded = true,
     path = "/home/suren/.local/share/nvim/site/pack/packer/start/undotree",
