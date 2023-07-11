@@ -12,6 +12,7 @@ use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 use('nvim-treesitter/playground')
 use('mbbill/undotree')
 use({'rose-pine/neovim', as = 'rose-pine'})
+use('github/copilot.vim')
 
 use {
 	'VonHeikemen/lsp-zero.nvim',
@@ -33,23 +34,22 @@ use {
 	{'L3MON4D3/LuaSnip'},     -- Required
 
 	-- cmp
-	{'hrsh7th/cmp-path'},     		-- Optionald
-	{'hrsh7th/cmp-nvim-lsp'},     		-- Optionald
-	{'hrsh7th/cmp-buffer'},     		-- Optionald
-	{'saadparwaiz1/cmp_luasnip'},     	-- Optionald
-	{'rafamadriz/friendly-snippets'},     	-- Optionald
+	{'hrsh7th/cmp-path'},     			-- Optionald
+	{'hrsh7th/cmp-nvim-lsp'},     			-- Optionald
+	{'hrsh7th/cmp-buffer'},     			-- Optionald
 	{'hrsh7th/cmp-nvim-lsp-signature-help'},	-- Optionald
+	{'saadparwaiz1/cmp_luasnip'},   	  	-- Optionald
+	{'rafamadriz/friendly-snippets'},	    	-- Optionald
 	--{'zbirenbaum/copilot-cmp'},			-- Optionald
 }
 }
 
-use("github/copilot.vim")
-use("vim-airline/vim-airline") -- TODO: considering transition to 'nvim-lualine/lualine.nvim'
-use("junegunn/goyo.vim") -- TODO: considering transition to 'Pocco81/true-zen.nvim'
-use("vimwiki/vimwiki")
-use("tpope/vim-surround")
-use("jreybert/vimagit")
-use("tpope/vim-commentary")
-use("ap/vim-css-color")
+use('vim-airline/vim-airline') -- TODO: considering transition to 'nvim-lualine/lualine.nvim'
+use('junegunn/goyo.vim') -- TODO: considering transition to 'Pocco81/true-zen.nvim'
+use('vimwiki/vimwiki')
+use('tpope/vim-surround')
+use('jreybert/vimagit')
+use('tpope/vim-commentary')
+use('ap/vim-css-color')
 
 end)
