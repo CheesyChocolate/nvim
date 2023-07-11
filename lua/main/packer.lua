@@ -39,6 +39,7 @@ use {
 	{'saadparwaiz1/cmp_luasnip'},     	-- Optionald
 	{'rafamadriz/friendly-snippets'},     	-- Optionald
 	{'hrsh7th/cmp-nvim-lsp-signature-help'},	-- Optionald
+	--{'zbirenbaum/copilot-cmp'},			-- Optionald
 }
 }
 
