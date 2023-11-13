@@ -1,6 +1,10 @@
 -- set leader key
 vim.g.mapleader = " "
 
+-- scrolloff the end of file
+vim.keymap.set("n", "j", "jzz")
+vim.keymap.set("n", "k", "kzz")
+
 -- file preview with vim (preview file)
 vim.keymap.set("n", "<leader>pf", ":!opout '%:p'<CR>", { silent = true })
 
