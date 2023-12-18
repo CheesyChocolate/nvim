@@ -61,3 +61,13 @@ vim.keymap.set("n", "<leader>h", Toggle_hidden_all, { silent = true })
 -- stay in visual mode after indenting
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+-- disable arrow keys
+vim.keymap.set("n", "<up>", "<nop>")
+vim.keymap.set("n", "<down>", "<nop>")
+vim.keymap.set("n", "<left>", "<nop>")
+vim.keymap.set("n", "<right>", "<nop>")
+vim.keymap.set("v", "<up>", "<nop>")
+vim.keymap.set("v", "<down>", "<nop>")
+vim.keymap.set("v", "<left>", "<nop>")
+vim.keymap.set("v", "<right>", "<nop>")
