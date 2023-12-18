@@ -10,6 +10,7 @@ vim.opt.ruler = false
 vim.opt.laststatus = 0
 vim.opt.showcmd = false
 vim.opt.encoding = "utf-8"
+vim.opt.mouse = ""
 
 -- faster load time
 vim.loader.enable()
