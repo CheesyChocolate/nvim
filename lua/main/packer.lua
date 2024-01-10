@@ -10,6 +10,7 @@ return require('packer').startup(function(use)
 
 use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
 use('nvim-treesitter/playground')
+use('nvim-treesitter/nvim-treesitter-context')
 use('mbbill/undotree')
 use({'rose-pine/neovim', as = 'rose-pine'})
 use('github/copilot.vim')
