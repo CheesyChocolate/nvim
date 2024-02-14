@@ -14,3 +14,6 @@ vim.g.vimwiki_list = {
         ext = '.md'
     }
 }
+
+
+-- vim.g.vimwiki_global_ext = 0
