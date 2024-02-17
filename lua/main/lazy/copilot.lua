@@ -1,3 +1,4 @@
+-- TODO: fix magit buffer not showing suggestions
 return {
 	"zbirenbaum/copilot.lua",
 	config = function()
