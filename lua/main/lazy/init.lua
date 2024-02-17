@@ -1,8 +1,5 @@
 return {
-	{
-		"nvim-lua/plenary.nvim",
-		name = "plenary"
-	},
+	"nvim-lua/plenary.nvim",
 	"jreybert/vimagit",
 	"airblade/vim-gitgutter",
 }
