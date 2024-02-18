@@ -68,8 +68,7 @@ vim.keymap.set("n", "<leader>c", ":w! |!compiler '%:p'<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
 -- keymap for toggling the bottom statusbar:
--- TODO: move to lualine conf
--- vim.keymap.set("n", "<leader>h", Toggle_hidden_all, { silent = true })
+vim.keymap.set("n", "<leader>h", Toggle_hidden_all, { silent = true })
 
 -- stay in visual mode after indenting
 vim.keymap.set("v", "<", "<gv")
