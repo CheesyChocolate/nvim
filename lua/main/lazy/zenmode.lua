@@ -1,3 +1,11 @@
+-- TODO: set ZenMode options when opening neomutt temp files
+-- vim.api.nvim_create_autocmd(
+-- 	{"BufRead", "BufNewFile"}, {
+-- 		pattern = {"/tmp/neomutt*"},
+-- 		callback =  require("zen-mode").toggle()
+-- 	}
+-- )
+
 return {
 	"folke/zen-mode.nvim",
 	config = function()
