@@ -48,3 +48,8 @@ vim.opt.splitright = true
 
 -- autocompletion
 vim.opt.wildmode = { "longest", "list", "full" }
+
+-- netrw settings -- TODO: enable this after mastering netrw
+-- vim.g.netrw_browse_split = 0
+-- vim.g.netrw_banner = 0
+-- vim.g.netrw_winsize = 25
