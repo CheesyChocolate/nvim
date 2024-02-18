@@ -20,6 +20,19 @@ return {
 					},
 					cloak_pattern = ".+"
 				},
+				{
+					file_pattern = {
+						"*.conf",
+					},
+					cloak_pattern = {
+						"token=.+",
+						"TOKEN=.+",
+						"key=.+",
+						"KEY=.+",
+						"password=.+",
+						"PASSWORD=.+",
+					},
+				},
 			},
 		})
 	end
