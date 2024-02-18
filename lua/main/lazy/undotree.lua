@@ -1,7 +1,7 @@
 return {
 	"mbbill/undotree",
 
-	config = function() 
+	config = function()
 		vim.opt.swapfile = false
 		vim.opt.backup = false
 		vim.opt.undodir = os.getenv("XDG_CACHE_HOME") .. "/nvim/undodir"
