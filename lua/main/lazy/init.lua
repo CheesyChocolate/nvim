@@ -15,5 +15,11 @@ return {
 			require("Comment").setup()
 		end,
 	},
+	{
+		"ethanholz/nvim-lastplace",
+		config = function()
+			require("nvim-lastplace").setup()
+		end,
+	},
 	"ap/vim-css-color",
 }
