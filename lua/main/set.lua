@@ -14,9 +14,6 @@ vim.opt.laststatus = 0
 vim.opt.showcmd = false
 vim.opt.encoding = "utf-8"
 
--- I don't like this
--- vim.opt.guicursor = ""
-
 -- faster load time
 -- vim.loader.enable() -- TODO: enable this
 
