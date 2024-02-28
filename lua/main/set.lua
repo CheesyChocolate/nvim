@@ -11,7 +11,7 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.showmode = false
 vim.opt.ruler = false
 vim.opt.laststatus = 0
-vim.opt.showcmd = false
+vim.opt.showcmd = true
 vim.opt.encoding = "utf-8"
 
 -- faster load time
