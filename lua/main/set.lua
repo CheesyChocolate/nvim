@@ -15,7 +15,7 @@ vim.opt.showcmd = true
 vim.opt.encoding = "utf-8"
 
 -- faster load time
--- vim.loader.enable() -- TODO: enable this
+vim.loader.enable()
 
 -- relative line number
 vim.opt.nu = true
