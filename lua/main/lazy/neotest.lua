@@ -7,8 +7,6 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-neotest/neotest-go",
 			"nvim-neotest/neotest-python",
-			"marilari88/neotest-vitest",
-			"Issafalcon/neotest-dotnet",
 			"rcasia/neotest-java",
 			"alfaix/neotest-gtest",
 			"rcasia/neotest-bash",
@@ -19,8 +17,6 @@ return {
 				adapters = {
 					require("neotest-go"),
 					require("neotest-python"),
-					require("neotest-vitest"),
-					require("neotest-dotnet"),
 					require("neotest-java"),
 					require("neotest-gtest").setup({}),
 					require("neotest-bash"),
