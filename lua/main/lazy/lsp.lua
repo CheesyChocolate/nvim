@@ -11,10 +11,14 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
+		"folke/neodev.nvim",
 		-- "j-hui/fidget.nvim",
 	},
 
 	config = function()
+
+		require("neodev").setup()
+
 		local cmp = require('cmp')
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
