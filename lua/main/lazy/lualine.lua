@@ -1,6 +1,9 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+		"letieu/harpoon-lualine",
+	},
 	config = function()
 		local lualine = require("lualine")
 		-- Color table for highlights
@@ -153,6 +156,14 @@ return {
 			function()
 				return '%='
 			end,
+		}
+
+		ins_left {
+			'harpoon2',
+			color = { fg = colors.green, gui = 'bold' },
+			indicators = { "h", "j", "k", "l" },
+			active_indicators = { "H", "J", "K", "L" },
+			_separator = " ",
 		}
 
 		-- ins_left {
