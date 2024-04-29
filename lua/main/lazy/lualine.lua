@@ -160,7 +160,7 @@ return {
 
 		ins_left {
 			'harpoon2',
-			color = { fg = colors.green, gui = 'bold' },
+			color = { fg = colors.orange, gui = 'bold' },
 			indicators = { "h", "j", "k", "l" },
 			active_indicators = { "H", "J", "K", "L" },
 			_separator = " ",
