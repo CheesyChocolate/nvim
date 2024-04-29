@@ -13,6 +13,3 @@ vim.api.nvim_create_autocmd(
 		end
 	}
 )
-
--- TODO: https://www.reddit.com/r/neovim/comments/uvemjr/is_there_an_autocmd_pattern_to_exclude_a_specific/
--- for ipython files, don't save cursor position
