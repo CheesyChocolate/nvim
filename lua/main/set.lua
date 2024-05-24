@@ -5,7 +5,6 @@ vim.g.node_host_prog = '/usr/bin/neovim-node-host'
 vim.opt.shortmess:append("sI")
 
 vim.opt.title = true
-vim.opt.go = "a"
 vim.opt.mouse = "a"
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.showmode = false
