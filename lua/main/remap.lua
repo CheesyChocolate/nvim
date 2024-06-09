@@ -64,6 +64,7 @@ vim.keymap.set("n", "<leader>l", ":vsp<space>$REFER<CR>", { silent = true })
 
 -- Compile document, be it groff/LaTeX/markdown/etc.
 vim.keymap.set("n", "<leader>c", ":w! |!compiler '%:p'<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cc", ":w! |split |terminal compiler '%:p'<CR>", { silent = true })
 
 -- Go magic
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
