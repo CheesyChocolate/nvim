@@ -28,7 +28,9 @@ return {
 			cmp_lsp.default_capabilities())
 
 		-- require("fidget").setup({})
-		require("mason").setup()
+		require("mason").setup({
+			PATH = "append",
+		})
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"angularls",
