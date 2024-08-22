@@ -59,7 +59,7 @@ return {
 				"ruff_lsp",
 				"rust_analyzer",
 				"sqlls",
-				"tsserver",
+				"ts_ls",
 				"typos_lsp",
 				"yamlls",
 			},
