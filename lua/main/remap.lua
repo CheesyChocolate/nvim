@@ -18,6 +18,7 @@ vim.keymap.set("n", "<leader>pf", ":!opout '%:p'<CR>", { silent = true })
 vim.keymap.set("n", "<leader>pd", vim.cmd.Ex)
 
 -- move selected lines
+-- NOTE: https://github.com/ziontee113/syntax-tree-surfer
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
