@@ -14,6 +14,7 @@ function Toggle_hidden_all()
 		vim.opt.ruler = false
 		vim.opt.laststatus = 0
 		vim.opt.showcmd = false
+		vim.opt.cmdheight = 0
 
 	else
 		h.hidden_all = 0
@@ -21,5 +22,6 @@ function Toggle_hidden_all()
 		vim.opt.ruler = true
 		vim.opt.laststatus = 2
 		vim.opt.showcmd = true
+		vim.opt.cmdheight = 1
 	end
 end
