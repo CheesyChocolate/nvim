@@ -56,7 +56,7 @@ return {
 				"perlnavigator",
 				"phpactor",
 				"pylsp",
-				"ruff_lsp",
+				"ruff",
 				"rust_analyzer",
 				"sqlls",
 				"ts_ls",
