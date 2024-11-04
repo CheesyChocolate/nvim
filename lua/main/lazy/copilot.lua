@@ -7,6 +7,8 @@ return {
 				auto_trigger = true,
 				keymap = {
 					accept = "<C-_>",
+					--TODO: Look for better keymap
+					accept_line = "<C-v>",
 				},
 			},
 			filetypes = {
