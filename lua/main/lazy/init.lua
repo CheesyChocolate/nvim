@@ -2,7 +2,10 @@ return {
 	"nvim-lua/plenary.nvim",
 	"jreybert/vimagit",
 	"tpope/vim-surround",
-	"folke/which-key.nvim",
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+	},
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
