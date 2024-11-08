@@ -8,7 +8,6 @@ return {
 			use_default_keymaps = false,
 		})
 
-		local builtin = require('treesj')
-		vim.keymap.set('n', '<leader>m', builtin.toggle)
+		vim.keymap.set('n', '<leader>m', require('treesj').toggle)
 	end
 }
