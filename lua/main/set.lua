@@ -22,6 +22,9 @@ vim.opt.relativenumber = true
 
 vim.opt.smartindent = true
 
+-- indent wrapped lines
+vim.opt.breakindent = true
+
 -- search settings
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
