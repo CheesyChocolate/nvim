@@ -13,6 +13,12 @@ vim.opt.laststatus = 0
 vim.opt.showcmd = true
 vim.opt.encoding = "utf-8"
 
+-- disable providers
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
+
 -- faster load time
 vim.loader.enable()
 
