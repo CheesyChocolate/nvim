@@ -14,13 +14,6 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
-vim.api.nvim_create_autocmd(
-	{"BufRead", "BufNewFile"}, {
-		pattern = {"*.tex", "*.bib"},
-		callback = function() vim.opt.filetype = "tex" end
-	}
-)
-
 ---------------------functions---------------------
 
 -- Runs a script that cleans out tex build files whenever I close out of a .tex file.
