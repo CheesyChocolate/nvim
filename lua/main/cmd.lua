@@ -1,7 +1,14 @@
--- https://neovim.io/doc/user/lua.html#vim.cmd()
--- Save file as sudo on files that require root permission
--- TODO: change name > "WriteSudo" to "W!!"
-vim.cmd([[command! -nargs=0 WriteSudo execute 'silent! write !sudo tee % >/dev/null' | edit!]])
+vim.api.nvim_create_user_command(
+	'WriteSudo',
+	function()
+		vim.api.nvim_command('silent! write !sudo tee % >/dev/null')
+		vim.api.nvim_command('edit!')
+	end,
+	{
+		nargs = 0,
+		desc = 'Save file with sudo on files that require root permission',
+	}
+)
 
 -- Function for toggling the bottom statusbar:
 local h = {hidden_all = 0}
