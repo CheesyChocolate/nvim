@@ -8,6 +8,6 @@ return {
 		vim.opt.undofile = true
 		vim.g.undotree_WindowLayout = 4
 
-		vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+		vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle undotree window" })
 	end
 }

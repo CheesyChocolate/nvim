@@ -6,6 +6,7 @@ return {
 	},
 	config = function()
 		require('aerial').setup()
-		vim.keymap.set("n", "<leader>ae", function() require('aerial').toggle() end)
+		vim.keymap.set("n", "<leader>ae", function() require('aerial').toggle() end,
+			{ desc = 'Toggle outline window' })
 	end,
 }

@@ -6,6 +6,6 @@ return {
 
 		vim.keymap.set("n", "<leader>td", function()
 			require("trouble").toggle("todo")
-		end)
+		end, { desc = "Toggle todo list" })
 	end,
 }

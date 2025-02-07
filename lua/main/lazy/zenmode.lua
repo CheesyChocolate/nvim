@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd(
-	{"BufRead", "BufNewFile"}, {
-		pattern = {"/tmp/neomutt*"},
+	{ "BufRead", "BufNewFile" }, {
+		pattern = { "/tmp/neomutt*" },
 		callback = function()
 			-- TODO: does not retain the config defined in plugin
 			-- temporary fix
@@ -69,6 +69,6 @@ return {
 
 			require("zen-mode").toggle()
 			ColorMyPencils()
-		end)
+		end, { desc = "Toggle Zen Mode" })
 	end
 }
