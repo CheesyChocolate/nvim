@@ -1,7 +1,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context",	-- optional
+		"nvim-treesitter/nvim-treesitter-context", -- optional
+		"nvim-treesitter/playground", -- optional
 	},
 	build = ":TSUpdate",
 	config = function()
