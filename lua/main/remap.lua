@@ -23,7 +23,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- delete line to black hole
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
 
 -- concatenates and put cursor at start
 vim.keymap.set("n", "J", "mzJ`z")
