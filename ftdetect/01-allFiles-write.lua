@@ -6,6 +6,11 @@ vim.api.nvim_create_autocmd(
 		callback = function()
 			local currPos = vim.fn.getpos(".")
 
+			-- Disable for pass files
+			if vim.fn.expand("%:p"):match("^/dev/shm/pass") then
+				return
+			end
+
 			vim.cmd([[%s/\s\+$//e]])
 			vim.cmd([[%s/\n\+\%$//e]])
 
