@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd(
 			vim.cmd([[%s/\s\+$//e]])
 			vim.cmd([[%s/\n\+\%$//e]])
 
-			vim.fn.cursor(currPos[2], currPos[3])
+			vim.fn.setpos(".", currPos)
 		end
 	}
 )
