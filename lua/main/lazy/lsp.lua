@@ -140,6 +140,24 @@ return {
 		vim.api.nvim_create_autocmd('LspAttach', {
 			group = vim.api.nvim_create_augroup('UserLspConfig', {}),
 			callback = function(ev)
+
+				local client = vim.lsp.get_client_by_id(ev.data.client_id)
+				if client and client.server_capabilities.inlayHintProvider then
+					vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+				end
+
+				-- TODO: Does not work
+				if client and client.server_capabilities.codeLensProvider then
+					vim.lsp.codelens.refresh()
+					vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+						buffer = ev.buf,
+						callback = vim.lsp.codelens.refresh
+						-- callback = function()
+						-- 	vim.lsp.codelens.refresh({ bufnr = ev.buf })
+						-- end
+					})
+				end
+
 				local opts = { buffer = ev.buf }
 				opts.desc = "Format buffer"
 				vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
