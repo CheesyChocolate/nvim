@@ -1,4 +1,14 @@
--- TODO: fix magit buffer not showing suggestions
+vim.api.nvim_create_autocmd(
+	{"VimEnter"}, {
+		pattern = {"*"},
+		callback = function()
+			if vim.bo.filetype == 'magit' then
+				vim.api.nvim_command("Copilot! toggle")
+			end
+		end,
+	}
+)
+
 return {
 	"zbirenbaum/copilot.lua",
 	config = function()
