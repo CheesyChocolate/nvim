@@ -30,15 +30,36 @@ return {
 			},
 		}
 
-		-- Basic debugging keymaps, feel free to change to your liking!
-		vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
-		vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-		vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-		vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
-		vim.keymap.set('n', '<F12>', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
-		vim.keymap.set('n', '<F11>', function()
-			dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-		end, { desc = 'Debug: Set Breakpoint' })
+
+		local function get_args()
+			local args = {}
+			local i = 1
+			while true do
+				local name, value = debug.getlocal(2, i)
+				if not name then break end
+				args[name] = value
+				i = i + 1
+			end
+			return args
+		end
+
+		vim.keymap.set('n', '<leader>bB', function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug: Breakpoint Condition' })
+		vim.keymap.set('n', '<leader>bb', function() require("dap").toggle_breakpoint() end, { desc = 'Debug: Toggle Breakpoint' })
+		vim.keymap.set('n', '<leader>bc', function() require("dap").continue() end, { desc = 'Debug: Run/Continue' })
+		vim.keymap.set('n', '<leader>ba', function() require("dap").continue({ before = get_args }) end, { desc = 'Debug: Run with Args' })
+		vim.keymap.set('n', '<leader>bC', function() require("dap").run_to_cursor() end, { desc = 'Debug: Run to Cursor' })
+		vim.keymap.set('n', '<leader>bg', function() require("dap").goto_() end, { desc = 'Debug: Go to Line (No Execute)' })
+		vim.keymap.set('n', '<leader>bj', function() require("dap").down() end, { desc = 'Debug: Down' })
+		vim.keymap.set('n', '<leader>bk', function() require("dap").up() end, { desc = 'Debug: Up' })
+		vim.keymap.set('n', '<leader>bl', function() require("dap").run_last() end, { desc = 'Debug: Run Last' })
+		vim.keymap.set('n', '<leader>bi', function() require("dap").step_into() end, { desc = 'Debug: Step Into' })
+		vim.keymap.set('n', '<leader>bo', function() require("dap").step_out() end, { desc = 'Debug: Step Out' })
+		vim.keymap.set('n', '<leader>bO', function() require("dap").step_over() end, { desc = 'Debug: Step Over' })
+		vim.keymap.set('n', '<leader>bP', function() require("dap").pause() end, { desc = 'Debug: Pause' })
+		vim.keymap.set('n', '<leader>br', function() require("dap").repl.toggle() end, { desc = 'Debug: Toggle REPL' })
+		vim.keymap.set('n', '<leader>bs', function() require("dap").session() end, { desc = 'Debug: Session' })
+		vim.keymap.set('n', '<leader>bt', function() require("dap").terminate() end, { desc = 'Debug: Terminate' })
+		vim.keymap.set('n', '<leader>bw', function() require("dap.ui.widgets").hover() end, { desc = 'Debug: Widgets' })
 
 		-- Dap UI setup
 		-- For more information, see |:help nvim-dap-ui|
