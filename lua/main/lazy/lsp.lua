@@ -31,6 +31,7 @@ return {
 			PATH = "append",
 		})
 		require("mason-lspconfig").setup({
+			automatic_installation = true,
 			ensure_installed = {
 				"angularls",
 				"arduino_language_server",
@@ -146,15 +147,11 @@ return {
 					vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
 				end
 
-				-- TODO: Does not work
 				if client and client.server_capabilities.codeLensProvider then
 					vim.lsp.codelens.refresh()
 					vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
 						buffer = ev.buf,
 						callback = vim.lsp.codelens.refresh
-						-- callback = function()
-						-- 	vim.lsp.codelens.refresh({ bufnr = ev.buf })
-						-- end
 					})
 				end
 
