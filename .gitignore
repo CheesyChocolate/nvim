@@ -41,3 +41,6 @@ luac.out
 
 # lazy
 lazy-lock.json
+
+# other
+/ignore
