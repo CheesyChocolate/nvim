@@ -24,6 +24,10 @@ vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d", { desc = "delete line to black
 -- concatenates and put cursor at start
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- TODO: replace with lsp
+-- format paragraph and keep cursor position
+vim.keymap.set("n", "=ap", "ma=ap'a")
+
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "paste over, without yanking" })
 vim.keymap.set("n", "c", '"_c', { silent = true, desc = "change without yanking" })
 
