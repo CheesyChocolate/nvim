@@ -11,7 +11,8 @@ vim.api.nvim_create_autocmd(
 
 return {
 	"zbirenbaum/copilot.lua",
-	lazy = true,
+	cmd = "Copilot",
+	event = "InsertEnter",
 	config = function()
 		require("copilot").setup {
 			suggestion = {
