@@ -19,7 +19,7 @@ vim.keymap.set("n", "<leader>pd", vim.cmd.Ex, { desc = "preview directory" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move selected lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move selected lines up" })
 
-vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d", { desc = "delete line to black hole" })
+vim.keymap.set({ "n", "v" }, "<leader>d ", "\"_d", { desc = "delete line to black hole" })
 
 -- concatenates and put cursor at start
 vim.keymap.set("n", "J", "mzJ`z")
