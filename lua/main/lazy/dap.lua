@@ -4,19 +4,7 @@ return {
 		lazy = false,
 		config = function()
 			local dap = require("dap")
-			dap.set_log_level("INFO")
-
-			-- TODO: do i need this?
-			-- https://github.com/jay-babu/mason-nvim-dap.nvim/blob/09220b99d63d5363f219daa2785242ee5fddba7f/lua/mason-nvim-dap/mappings/configurations.lua#L6
-			dap.configurations.go = {
-				{
-					type = "delve",
-					name = "file",
-					request = "launch",
-					program = "${file}",
-					outputMode = "remote",
-				}
-			}
+			dap.set_log_level("DEBUG")
 
 			local function get_args()
 				local args = {}
@@ -124,7 +112,11 @@ return {
 
 	{
 		"jay-babu/mason-nvim-dap.nvim",
-		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"mfussenegger/nvim-dap",
+			"neovim/nvim-lspconfig",
+		},
 		config = function()
 			require('mason-nvim-dap').setup {
 				automatic_setup = true,
@@ -136,6 +128,28 @@ return {
 				automatic_installation = true,
 				handlers = {
 					function(config)
+						require("mason-nvim-dap").default_setup(config)
+					end,
+
+					-- TODO: do i need this?
+					-- https://github.com/jay-babu/mason-nvim-dap.nvim/blob/09220b99d63d5363f219daa2785242ee5fddba7f/lua/mason-nvim-dap/mappings/configurations.lua#L6
+					delve = function(config)
+						table.insert(config.configurations, 1, {
+							args = function() return vim.split(vim.fn.input("args> "), " ") end,
+							type = "delve",
+							name = "file",
+							request = "launch",
+							program = "${file}",
+							outputMode = "remote",
+						})
+						table.insert(config.configurations, 1, {
+							args = function() return vim.split(vim.fn.input("args> "), " ") end,
+							type = "delve",
+							name = "file args",
+							request = "launch",
+							program = "${file}",
+							outputMode = "remote",
+						})
 						require("mason-nvim-dap").default_setup(config)
 					end,
 				},
