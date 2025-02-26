@@ -5,7 +5,8 @@ return {
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
-		"nvim-neotest/neotest-go",
+		"fredrikaverpil/neotest-golang",
+		"leoluz/nvim-dap-go",
 		"nvim-neotest/neotest-python",
 		"rcasia/neotest-java",
 		"alfaix/neotest-gtest",
@@ -15,7 +16,9 @@ return {
 		local neotest = require("neotest")
 		neotest.setup({
 			adapters = {
-				require("neotest-go"),
+				require("neotest-golang")({
+					dap = { justMyCode = false },
+				}),
 				require("neotest-python"),
 				require("neotest-java"),
 				require("neotest-gtest").setup({}),
