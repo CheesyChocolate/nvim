@@ -32,9 +32,18 @@ return {
 				testify = true,
 			})
 		end, { desc = "Debug: Running Nearest Test" })
+
+		vim.keymap.set("n", "<leader>ts", function()
+			require("neotest").run.run({
+				suite = true,
+				testify = true,
+			})
+		end, { desc = "Debug: Running Test Suite" })
+
 		vim.keymap.set("n", "<leader>tf", function()
 			neotest.run.run(vim.fn.expand("%"))
 		end, { desc = "Run the current test file" })
+
 		vim.keymap.set("n", "<leader>td", function()
 			require("neotest").run.run({
 				suite = false,
@@ -42,6 +51,7 @@ return {
 				strategy = "dap",
 			})
 		end, { desc = "Debug: Debug Nearest Test" })
+
 		vim.keymap.set("n", "<leader>to", function()
 			require("neotest").output.open()
 		end, { desc = "Debug: Open test output" })
