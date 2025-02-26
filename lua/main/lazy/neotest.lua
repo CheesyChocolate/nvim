@@ -26,12 +26,24 @@ return {
 			}
 		})
 
-		vim.keymap.set("n", "<leader>tc", function()
-			neotest.run.run()
-		end, { desc = "Run the nearest test" })
-
+		vim.keymap.set("n", "<leader>tr", function()
+			require("neotest").run.run({
+				suite = false,
+				testify = true,
+			})
+		end, { desc = "Debug: Running Nearest Test" })
 		vim.keymap.set("n", "<leader>tf", function()
 			neotest.run.run(vim.fn.expand("%"))
 		end, { desc = "Run the current test file" })
+		vim.keymap.set("n", "<leader>td", function()
+			require("neotest").run.run({
+				suite = false,
+				testify = true,
+				strategy = "dap",
+			})
+		end, { desc = "Debug: Debug Nearest Test" })
+		vim.keymap.set("n", "<leader>to", function()
+			require("neotest").output.open()
+		end, { desc = "Debug: Open test output" })
 	end,
 }
