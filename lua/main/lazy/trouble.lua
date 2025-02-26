@@ -8,6 +8,10 @@ return {
 				require("trouble").toggle("diagnostics")
 			end, { desc = "Toggle Diagnostics Window" })
 
+			vim.keymap.set("n", "<leader>to", function()
+				require("trouble").toggle("todo")
+			end, { desc = "Toggle todo list" })
+
 			vim.keymap.set("n", "]t", function()
 				require("trouble").next({ skip_groups = true, jump = true });
 			end, { desc = "Next Trouble" })
