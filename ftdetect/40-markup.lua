@@ -17,9 +17,10 @@ vim.api.nvim_create_autocmd(
 ---------------------functions---------------------
 
 -- Runs a script that cleans out tex build files whenever I close out of a .tex file.
+-- TODO: can't handle multiple .tex files open at once
 vim.api.nvim_create_autocmd(
 	"VimLeave", {
 		pattern = "*.tex",
-		command = "!texclear %"
+		command = "!latexmk -c %"
 	}
 )
