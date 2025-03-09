@@ -15,6 +15,11 @@ vim.keymap.set("n", "<leader>pf", ":!opout '%:p'<CR>", { silent = true, desc = "
 
 vim.keymap.set("n", "<leader>pd", vim.cmd.Ex, { desc = "preview directory" })
 
+-- buffer navigation
+vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "next buffer" })
+vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "previous buffer" })
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "delete buffer" })
+
 -- NOTE: https://github.com/ziontee113/syntax-tree-surfer
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move selected lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move selected lines up" })
@@ -57,8 +62,8 @@ vim.keymap.set("v", ".", ":normal .<CR>", { silent = true, desc = "dot command (
 vim.keymap.set("n", "<leader>o", ":setlocal spell! spelllang=en_us<CR>", { silent = true, desc = "toggle spell check" })
 
 -- Open my bibliography file in split
-vim.keymap.set("n", "<leader>b", ":vsp<space>$BIB<CR>", { silent = true, desc = "open bibliography file" })
-vim.keymap.set("n", "<leader>l", ":vsp<space>$REFER<CR>", { silent = true, desc = "open reference file" })
+vim.keymap.set("n", "<leader>bb", ":vsp<space>$BIB<CR>", { silent = true, desc = "open bibliography file" })
+vim.keymap.set("n", "<leader>br", ":vsp<space>$REFER<CR>", { silent = true, desc = "open reference file" })
 
 -- Compile document, be it groff/LaTeX/markdown/etc.
 vim.keymap.set("n", "<leader>c", ":w! |!compiler '%:p'<CR>", { silent = true, desc = "compile document" })
