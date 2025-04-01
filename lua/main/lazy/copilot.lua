@@ -1,8 +1,12 @@
+local force_toggle = {
+	"magit",
+	"copilot-chat",
+}
+
 vim.api.nvim_create_autocmd(
-	{ "VimEnter" }, {
-		pattern = { "*" },
+	{ "VimEnter" , "BufWinEnter" }, {
 		callback = function()
-			if vim.bo.filetype == 'magit' then
+			if vim.tbl_contains(force_toggle, vim.bo.filetype) then
 				vim.api.nvim_command("Copilot! toggle")
 			end
 		end,
