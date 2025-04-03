@@ -8,7 +8,9 @@ return {
 			patterns = {
 				{
 					file_pattern = {
-						".env*",
+						"env",
+						"*.env",
+						"*.env.*",
 						"wrangler.toml",
 						".dev.vars",
 					},

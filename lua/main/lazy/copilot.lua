@@ -31,6 +31,7 @@ return {
 				},
 			},
 			filetypes = {
+				env = false,
 				["*"] = true,
 			},
 		}
