@@ -1,18 +1,3 @@
-local force_toggle = {
-	"magit",
-	"copilot-chat",
-}
-
-vim.api.nvim_create_autocmd(
-	{ "VimEnter" , "BufWinEnter" }, {
-		callback = function()
-			if vim.tbl_contains(force_toggle, vim.bo.filetype) then
-				vim.api.nvim_command("Copilot! toggle")
-			end
-		end,
-	}
-)
-
 return {
 	"zbirenbaum/copilot.lua",
 	config = function()
@@ -34,6 +19,9 @@ return {
 				env = false,
 				["*"] = true,
 			},
+			should_attach = function(_, _)
+				return true
+			end,
 		}
 	end
 }
