@@ -14,6 +14,7 @@ return {
 					accept = "<C-_>",
 					--TODO: Look for better keymap
 					accept_line = "<C-v>",
+					accept_word = "<C-\\>",
 					next = false,
 					prev = false,
 					dismiss = false,
