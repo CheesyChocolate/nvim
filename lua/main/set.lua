@@ -13,6 +13,9 @@ vim.opt.laststatus = 0
 vim.opt.showcmd = true
 vim.opt.encoding = "utf-8"
 
+-- tab settings
+vim.o.shiftround = true
+
 -- disable providers
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
