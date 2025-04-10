@@ -37,6 +37,7 @@ vim.opt.breakindent = true
 -- search settings
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.o.ignorecase = true
 vim.opt.smartcase = true
 
 -- colors
