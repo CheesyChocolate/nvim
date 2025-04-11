@@ -92,11 +92,15 @@ return {
 						capabilities = capabilities,
 						settings = {
 							Lua = {
-								diagnostics = {
-									globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-								}
-							}
-						}
+								format = {
+									enable = true,
+									defaultConfig = {
+										indent_style = "tab",
+										indent_size = "1",
+									},
+								},
+							},
+						},
 					}
 				end,
 			}
@@ -156,8 +160,6 @@ return {
 				end
 
 				local opts = { buffer = ev.buf }
-				opts.desc = "Format buffer"
-				vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
 				opts.desc = "Go to Definition"
 				vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 				opts.desc = "Show hover information"
