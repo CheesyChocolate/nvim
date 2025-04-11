@@ -1,5 +1,4 @@
 -- global settings
-vim.g.node_host_prog = '/usr/bin/neovim-node-host'
 
 -- disable nvim intro
 vim.opt.shortmess:append("sI")
