@@ -1,3 +1,14 @@
+local root_files = {
+	".luarc.json",
+	".luarc.jsonc",
+	".luacheckrc",
+	".stylua.toml",
+	"stylua.toml",
+	"selene.toml",
+	"selene.yml",
+	".git",
+}
+
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -43,7 +54,6 @@ return {
 				"eslint",
 				"gopls",
 				"html",
-				"htmx",
 				"jdtls",
 				"jedi_language_server",
 				"jsonls",
@@ -121,6 +131,7 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
+				{ name = "copilot", group_index = 2 },	-- TODO: should I?
 				{ name = 'nvim_lsp' },
 				{ name = 'luasnip' },
 				{ name = 'nvim-lsp-signature-help' },
