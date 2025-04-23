@@ -10,7 +10,7 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>f", function()
-			require("conform").format({ buffer = 0 })
+			require("conform").format({ buffer = 0, async = true })
 		end, { desc = "Format buffer" })
 	end,
 }
