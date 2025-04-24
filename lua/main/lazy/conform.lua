@@ -7,6 +7,9 @@ return {
 				lua = { "stylua" },
 				tex = { "tex-fmt" },
 			},
+			default_format_opts = {
+				lsp_format = "fallback",
+			},
 		})
 
 		vim.keymap.set("n", "<leader>f", function()
