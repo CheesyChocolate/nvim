@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd(
 	"BufWritePre", {
 		pattern = "*",
 		callback = function()
-			local currPos = vim.fn.getpos(".")
+			local currPos = vim.api.nvim_win_get_cursor(0)
 
 			-- Disable for pass files
 			if vim.fn.expand("%:p"):match("^/dev/shm/pass") then
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd(
 			vim.cmd([[%s/\s\+$//e]])
 			vim.cmd([[%s/\n\+\%$//e]])
 
-			vim.fn.setpos(".", currPos)
+			vim.api.nvim_win_set_cursor(0, currPos)
 		end
 	}
 )
