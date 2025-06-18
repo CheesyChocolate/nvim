@@ -6,6 +6,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				tex = { "tex-fmt" },
+				go = { "gofmt" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
