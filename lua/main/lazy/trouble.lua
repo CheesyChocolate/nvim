@@ -8,7 +8,7 @@ return {
 				require("trouble").toggle("diagnostics")
 			end, { desc = "Toggle Diagnostics Window" })
 
-			vim.keymap.set("n", "<leader>to", function()
+			vim.keymap.set("n", "<leader>tl", function()
 				require("trouble").toggle("todo")
 			end, { desc = "Toggle todo list" })
 
