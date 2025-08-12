@@ -64,3 +64,13 @@ vim.opt.wildmode = { "longest", "list", "full" }
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+-- display non-printable characters
+vim.opt.list = true
+vim.opt.listchars:append({
+	tab = "  ",
+	trail = " ",
+	nbsp = "+",
+	extends = "»",
+	precedes = "«",
+})
