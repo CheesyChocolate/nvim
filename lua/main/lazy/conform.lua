@@ -7,6 +7,9 @@ return {
 				lua = { "stylua" },
 				tex = { "tex-fmt" },
 				go = { "gofmt" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				elixir = { "mix" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
