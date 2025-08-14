@@ -28,5 +28,18 @@ return {
 				return true
 			end,
 		}
-	end
+	end,
+	-- "supermaven-inc/supermaven-nvim",
+	-- config = function()
+	-- 	require("supermaven-nvim").setup({
+	-- 		keymaps = {
+	-- 			accept_suggestion = "<C-_>",
+	-- 			clear_suggestion = nil,
+	-- 			accept_word = "<C-\\>",
+	-- 		},
+	-- 		ignore_filetypes = {
+	-- 			env = true,
+	-- 		},
+	-- 	})
+	-- end,
 }
