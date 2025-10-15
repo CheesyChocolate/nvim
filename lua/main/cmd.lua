@@ -10,6 +10,17 @@ vim.api.nvim_create_user_command(
 	}
 )
 
+vim.keymap.set(
+	"ca",
+	"w!!",
+	"execute 'write !sudo tee % >/dev/null' | edit!",
+	-- function()
+	-- 	vim.api.nvim_command("silent! write !sudo tee % >/dev/null")
+	-- 	vim.api.nvim_command("edit!")
+	-- end,
+	{ silent = true, desc = "Save file with sudo on files that require root permission" }
+)
+
 -- Function for toggling the bottom statusbar:
 local hidden_all = false
 function Toggle_hidden_all()
