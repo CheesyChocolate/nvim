@@ -35,6 +35,7 @@ return {
 						"PASSWORD=.+",
 					},
 				},
+				-- TODO: support for file type. for cert and keys. contribure to upstream
 			},
 		})
 	end
