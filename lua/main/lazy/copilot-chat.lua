@@ -6,8 +6,6 @@ return {
 	},
 	build = "make tiktoken",    -- Only on MacOS or Linux
 	config = function()
-		require("CopilotChat").setup({
-		model = "claude-sonnet-4",
-		})
+		require("CopilotChat").setup({})
 	end,
 }
