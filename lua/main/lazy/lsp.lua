@@ -72,7 +72,7 @@ return {
 				"ts_ls",
 				"typos_lsp",
 				"yamlls",
-				"tailwindcss",
+				-- "tailwindcss",
 			},
 			-- TODO: possibly should be deleted, since the mason now has a default handler
 
@@ -121,19 +121,6 @@ return {
 			--		lspconfig.tailwindcss.setup({
 			--			capabilities = capabilities,
 			--			filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
-			--			settings = {
-			--				tailwindCSS = {
-			--					experimental = {
-			--						classRegex = {
-			--							"tw`([^`]*)",
-			--							"tw=\"([^\"]*)",
-			--							"tw={\"([^\"}]*)",
-			--							"tw\\.\\w+`([^`]*)",
-			--							"tw\\(.*?\\)`([^`]*)",
-			--						},
-			--					},
-			--				},
-			--			},
 			--		})
 			--	end,
 			-- }
