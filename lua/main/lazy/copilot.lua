@@ -5,7 +5,6 @@ return {
 			server = {
 				type = "binary",
 			},
-			copilot_model = "gpt-4o-copilot",
 			suggestion = {
 				enabled = true,
 				auto_trigger = true,
