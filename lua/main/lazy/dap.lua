@@ -36,6 +36,10 @@ end
 return {
 	{
 		"mfussenegger/nvim-dap",
+		dependencies = {
+			"theHamsta/nvim-dap-virtual-text",
+		},
+
 		lazy = false,
 		config = function()
 			local dap = require("dap")
