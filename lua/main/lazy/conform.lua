@@ -9,6 +9,7 @@ return {
 				lua = { "stylua" },
 				tex = { "tex-fmt" },
 				go = { "gofmt" },
+				odin = { "odinfmt" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				elixir = { "mix" },
