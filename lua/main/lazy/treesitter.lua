@@ -45,6 +45,16 @@ return {
 				-- Instead of true it can also be a list of languages
 				additional_vim_regex_highlighting = { "markdown" },
 			},
+			textobjects = {
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["af"] = "@function.outer",
+						["if"] = "@function.inner",
+					},
+				},
+			},
 		})
 	end,
 }
