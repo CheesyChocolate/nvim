@@ -1,12 +1,14 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context", -- optional
+		-- "nvim-treesitter/nvim-treesitter-context", -- optional
+		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/playground", -- optional
 	},
 	build = ":TSUpdate",
+	lazy = false,
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		require("nvim-treesitter").setup({
 			-- A list of parser names, or "all"
 			ensure_installed = "all",
 
@@ -18,7 +20,7 @@ return {
 			auto_install = true,
 
 			indent = {
-				enable = true
+				enable = true,
 			},
 
 			highlight = {
@@ -44,5 +46,5 @@ return {
 				additional_vim_regex_highlighting = { "markdown" },
 			},
 		})
-	end
+	end,
 }
