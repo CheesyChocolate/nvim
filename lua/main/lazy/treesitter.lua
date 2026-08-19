@@ -3,58 +3,53 @@ return {
 	dependencies = {
 		-- "nvim-treesitter/nvim-treesitter-context", -- optional
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		"nvim-treesitter/playground", -- optional
+		-- "nvim-treesitter/playground", -- optional
 	},
 	build = ":TSUpdate",
 	lazy = false,
 	config = function()
-		require("nvim-treesitter").setup({
-			-- A list of parser names, or "all"
-			ensure_installed = "all",
+		-- Install every available parser in the background.
+		require("nvim-treesitter").install("all")
 
-			-- Install parsers synchronously (only applied to `ensure_installed`)
-			sync_install = false,
+		local max_filesize = 100 * 1024 -- 100 KB
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "*",
+			callback = function(args)
+				local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(args.buf))
+				if ok and stats and stats.size > max_filesize then
+					vim.notify(
+						"File larger than 100KB treesitter disabled for performance",
+						vim.log.levels.WARN,
+						{ title = "Treesitter" }
+					)
+					return
+				end
 
-			-- Automatically install missing parsers when entering buffer
-			-- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
-			auto_install = true,
+				local started = pcall(vim.treesitter.start)
+				if not started then
+					return
+				end
 
-			indent = {
-				enable = true,
-			},
+				vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
-			highlight = {
-				-- `false` will disable the whole extension
-				enable = true,
-				disable = function(lang, buf)
-					local max_filesize = 100 * 1024 -- 100 KB
-					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-					if ok and stats and stats.size > max_filesize then
-						vim.notify(
-							"File larger than 100KB treesitter disabled for performance",
-							vim.log.levels.WARN,
-							{ title = "Treesitter" }
-						)
-						return true
-					end
-				end,
+				if args.match == "markdown" then
+					vim.bo[args.buf].syntax = "on"
+				end
+			end,
+		})
 
-				-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-				-- Set this to `true` if you depend on "syntax" being enabled (like for indentation).
-				-- Using this option may slow down your editor, and you may see some duplicate highlights.
-				-- Instead of true it can also be a list of languages
-				additional_vim_regex_highlighting = { "markdown" },
-			},
-			textobjects = {
-				select = {
-					enable = true,
-					lookahead = true,
-					keymaps = {
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-					},
-				},
+		require("nvim-treesitter-textobjects").setup({
+			select = {
+				lookahead = true,
 			},
 		})
+
+		local select = require("nvim-treesitter-textobjects.select")
+		vim.keymap.set({ "x", "o" }, "af", function()
+			select.select_textobject("@function.outer", "textobjects")
+		end, { desc = "Select outer function" })
+		vim.keymap.set({ "x", "o" }, "if", function()
+			select.select_textobject("@function.inner", "textobjects")
+		end, { desc = "Select inner function" })
 	end,
 }
