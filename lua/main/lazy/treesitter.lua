@@ -1,9 +1,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
-		-- "nvim-treesitter/nvim-treesitter-context", -- optional
+		"nvim-treesitter/nvim-treesitter-context",
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		-- "nvim-treesitter/playground", -- optional
 	},
 	build = ":TSUpdate",
 	lazy = false,
@@ -51,5 +50,12 @@ return {
 		vim.keymap.set({ "x", "o" }, "if", function()
 			select.select_textobject("@function.inner", "textobjects")
 		end, { desc = "Select inner function" })
+
+		require("treesitter-context").setup({
+			enable = true,
+		})
+		vim.keymap.set("n", "<leader>tc", function()
+			require("treesitter-context").go_to_context(vim.v.count1)
+		end, { silent = true, desc = "Jump to context" })
 	end,
 }
