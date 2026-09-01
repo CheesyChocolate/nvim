@@ -182,11 +182,7 @@ return {
 				end
 
 				if client and client.server_capabilities.codeLensProvider then
-					vim.lsp.codelens.refresh()
-					vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-						buffer = ev.buf,
-						callback = vim.lsp.codelens.refresh,
-					})
+					vim.lsp.codelens.enable(true, { bufnr = ev.buf })
 				end
 
 				local opts = { buffer = ev.buf }
