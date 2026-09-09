@@ -26,8 +26,44 @@ return {
 		-- "j-hui/fidget.nvim",
 	},
 
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("neodev").setup()
+
+		-- Idle LSP shutdown: stop a client once every buffer it's attached
+		-- to has been untouched for IDLE_MS. Keeps long-lived / shared nvim
+		-- servers (see tv.go) from holding rust-analyzer, tsserver, etc.
+		-- resident for hours after you've walked away. The client restarts
+		-- automatically next time you edit a buffer of that filetype.
+		local IDLE_MS = 20 * 60 * 1000
+		local last_active = {}
+		vim.api.nvim_create_autocmd(
+			{ "CursorMoved", "CursorMovedI", "TextChanged", "TextChangedI", "InsertEnter" },
+			{
+				callback = function(ev)
+					last_active[ev.buf] = vim.uv.now()
+				end,
+			}
+		)
+		local idle_timer = vim.uv.new_timer()
+		idle_timer:start(60000, 60000, vim.schedule_wrap(function()
+			local now = vim.uv.now()
+			for _, client in ipairs(vim.lsp.get_clients()) do
+				local bufs = vim.lsp.get_buffers_by_client_id(client.id)
+				if #bufs > 0 then
+					local all_idle = true
+					for _, buf in ipairs(bufs) do
+						if now - (last_active[buf] or 0) < IDLE_MS then
+							all_idle = false
+							break
+						end
+					end
+					if all_idle then
+						client:stop()
+					end
+				end
+			end
+		end))
 
 		local cmp = require('cmp')
 		local cmp_lsp = require("cmp_nvim_lsp")
@@ -176,6 +212,8 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
+				last_active[ev.buf] = vim.uv.now()
+
 				local client = vim.lsp.get_client_by_id(ev.data.client_id)
 				if client and client.server_capabilities.inlayHintProvider then
 					vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
