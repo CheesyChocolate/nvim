@@ -8,6 +8,7 @@ return {
 
 		dependencies = { "rafamadriz/friendly-snippets" },
 
+		event = "InsertEnter",
 		config = function()
 			local ls = require("luasnip")
 			ls.filetype_extend("javascript", { "jsdoc" })

@@ -1,6 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	opts = {},
+	keys = { "<leader>f" },
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {

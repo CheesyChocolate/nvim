@@ -1,6 +1,8 @@
 return {
 	{
 		"folke/trouble.nvim",
+		cmd = "Trouble",
+		keys = { "<leader>tt", "<leader>tl", "]t", "[t" },
 		config = function()
 			require("trouble").setup({})
 

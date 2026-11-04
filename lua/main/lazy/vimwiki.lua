@@ -20,4 +20,11 @@ vim.g.vimwiki_global_ext = 0
 
 return {
 	"vimwiki/vimwiki",
+	ft = "vimwiki",
+	cmd = {
+		"VimwikiIndex",
+		"VimwikiUISelect",
+		"VimwikiMakeDiaryNote",
+		"VimwikiDiaryIndex",
+	},
 }

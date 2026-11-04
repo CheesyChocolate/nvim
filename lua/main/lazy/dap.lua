@@ -33,6 +33,15 @@ local function create_nav_options(name)
 end
 
 
+local dap_keys = {
+	"<leader>dB", "<leader>db", "<leader>dc", "<leader>da", "<leader>dC",
+	"<leader>dg", "<leader>dj", "<leader>dk", "<leader>dl", "<leader>di",
+	"<leader>do", "<leader>dO", "<leader>dP", "<leader>dr", "<leader>ds",
+	"<leader>dt", "<leader>dw",
+	"<leader>dui", "<leader>dur", "<leader>dus", "<leader>duw",
+	"<leader>dub", "<leader>duS", "<leader>duc",
+}
+
 return {
 	{
 		"mfussenegger/nvim-dap",
@@ -40,7 +49,7 @@ return {
 			"theHamsta/nvim-dap-virtual-text",
 		},
 
-		lazy = false,
+		keys = dap_keys,
 		config = function()
 			local dap = require("dap")
 			dap.set_log_level("DEBUG")
@@ -81,6 +90,7 @@ return {
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+		keys = dap_keys,
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
@@ -174,6 +184,7 @@ return {
 			"mfussenegger/nvim-dap",
 			"neovim/nvim-lspconfig",
 		},
+		keys = dap_keys,
 		config = function()
 			require('mason-nvim-dap').setup {
 				automatic_setup = true,

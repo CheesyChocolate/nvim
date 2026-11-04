@@ -5,6 +5,7 @@ return {
 		{ "nvim-lua/plenary.nvim" },
 	},
 	build = "make tiktoken",    -- Only on MacOS or Linux
+	cmd = "CopilotChat",
 	config = function()
 		require("CopilotChat").setup({})
 	end,

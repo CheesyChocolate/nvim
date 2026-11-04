@@ -7,6 +7,11 @@ return {
 		"nvim-lua/plenary.nvim"
 	},
 
+	cmd = "Telescope",
+	keys = {
+		"<leader>ff", "<leader>fg", "<leader>pws", "<leader>fd",
+		"<leader>pWs", "<leader>ps", "<leader>vh",
+	},
 	config = function()
 		require('telescope').setup({})
 

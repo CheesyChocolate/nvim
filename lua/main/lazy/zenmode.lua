@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd(
 
 return {
 	"folke/zen-mode.nvim",
+	keys = { "<leader>z" },
 	config = function()
 		vim.keymap.set("n", "<leader>z", function()
 			require("zen-mode").setup {
